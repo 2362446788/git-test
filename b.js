@@ -1,4 +1,3 @@
 bbb
 test
-aaa
 ttt

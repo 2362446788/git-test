@@ -70,7 +70,19 @@ commit可以将暂存区中的文件提交到本地仓库历史区中。
 **新建分支**
 可以在当前分支分离出一个新的分支，是基于当前分支。
 通过git checkout -b [分支名]进行创建并切换
-git checkout [分支名] 切换分支
-git branch 查看本地分支
-git branch -r 查看远程分支
-git branch -a 查看本地和远程分支
+1. git checkout [分支名] 切换分支
+2. git branch 查看本地分支
+3. git branch -r 查看远程分支
+4. git branch -a 查看本地和远程分支
+5. git branch -d/-D 分支名 删除本地分支
+6. git push origin[主机名] :master[远程分支名] 删除远程分支
+7. git push origin --delete [branch-name] 物理删除，效果和6一样
+8. git branch -dr [主机名/分支名] 只是删除追踪，远程并不会被删除
+9. git branch --track [本地分支名] [主机名/远程分支名] 新建一条分支与远程建立追踪关系，想要提交需要用到git commit origin[主机名] HEAD:[远程分支名]
+10. git branch --set-upstream-to [主机名/远程分支名] [本地分支名] 在**现有的分支**上与远程分支建立追踪关系,想要提交需要用到git commit origin[主机名] HEAD:[远程分支名]
+
+#### 误删远程分支
+有时候会误删远程的某个分支，那么就需要紧急补救一下：
+1. git reflog --date=iso 查找到删除前的第一次提交commitid
+2. git checkout -b 本地分支名[一般和远程相同] commitid
+3. git push origin 分支名 --set-upstream 将版本上传到remote，并且设置追踪

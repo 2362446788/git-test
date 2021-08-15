@@ -4,8 +4,8 @@
     + workspace：工作区，平时存放代码的地方；文件状态有四个：未被追踪untracked、未被修改unmodified、已修改modified、staged已暂存；
         - untracked：未被追踪，一般是在当前仓库中新增的文件，之前未存在于该仓库；这样的文件可以通过git add将状态修改为staged添加到仓库中；添加图片进来。
         - unmodified：未被修改，一般是该仓库中原来的文件，没有进行任何操作；这样的文件有两种去处：
-            1. 修改文件内容变将状态变为modified；
-            2. 通过git rm将文件从仓库中删除，状态变为untracked。
+            + 修改文件内容变将状态变为modified；
+            + 通过git rm 文件名 --cache将文件从仓库中删除，即不追踪该文件，状态变为untracked。
         - modified：已修改，一般指仓库中被修过的文件；
         - staged：暂存，一般指在workspace通过git add提交过来的文件
     + stage：暂存区，将工作区的内容提交过来变为暂存状态

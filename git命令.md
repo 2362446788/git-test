@@ -39,6 +39,12 @@ commit可以将暂存区中的文件提交到本地仓库历史区中。
 4. git commit --amend -m 'message'：使用一次新的commit，替代上一次提交，如果代码没有任何新变化，则用来改写上一次commit的提交信息；
 5. git commit --amend [file1] [file2]：重做上一次提交，包含新文件更新。
 
+#### git ls-files
+这个命令可以查看文件的信息
+1. git ls-files：查看所有缓存的文件；
+2. git ls-files -o：查看未被追踪的文件；
+3. fit ls-files --modified：查看被修改的文件。
+
 首先可以通过两种方式创建git仓库和远程仓库进行连接：
 **git init**
 在本地先通过git init创建一个本地的git仓库，再通过git remote add origin [git地址]进行关联。
@@ -47,6 +53,7 @@ commit可以将暂存区中的文件提交到本地仓库历史区中。
 如果不想要再关联，那么可以使用git remote remove [关联名]；
 如果本地的分支为main，而远程的为master，那么直接git push是不行的，需要先创建一个远程分支main，可以通过git push origin main创建远程分支并且上传上去，后续的话每一次提交都需要指定主机和分支名，可以通过git push --set-upstream [主机] [分支名]来进行绑定，后续就不需要指定了。
 仓库中的分支都是互相不影响的，当功能开发完成可以进行合并。
+
 **git clone [git地址]**
 直接通过git clone进行项目克隆。
 通过clone的自动建立了--set-upstream连接，不需要指定分支名（只限克隆下来的master或者main分支），对于新创建的分支也需要像git init一样操作。
@@ -54,16 +61,10 @@ commit可以将暂存区中的文件提交到本地仓库历史区中。
 直接克隆远程分支：
 
 1. git clone [远程地址] 
-   git fetch origin [远程分支名] (这一条是针对老项目，如果是新项目直接clone不需要fetch就是最新的)
-    git checkout -b [本地分支名] origin/[远程分支名] （将两个分支产生连接关系），push不需要指明了
+   git fetch origin [远程分支名] (这一条是针对老项目，如果是新项目直接clone不需要fetch就是最新的)，git checkout -b [本地分支名] origin/[远程分支名] （将两个分支产生连接关系），push不需要指明了
 2. git clone -b [远程分支名] [地址]
 
 新建分支与远端产生追踪关系：
-
-#### git的流程
-1. git init 
-2. git clone 
-
 
 
 **新建分支**

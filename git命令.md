@@ -5,11 +5,27 @@
         - untracked：未被追踪，一般是在当前仓库中新增的文件，之前未存在于该仓库；这样的文件可以通过git add将状态修改为staged添加到仓库中；添加图片进来。
         - unmodified：未被修改，一般是该仓库中原来的文件，没有进行任何操作；这样的文件有两种去处：
             + 修改文件内容变将状态变为modified；
-            + 通过git rm 文件名 --cache将文件从仓库中删除，即不追踪该文件，状态变为untracked。
+            + 通过git rm 文件名 --cache将文件从仓库中删除，即不追踪该文件，状态变为untracked。git rm的其余操作看这儿
         - modified：已修改，一般指仓库中被修过的文件；
         - staged：暂存，一般指在workspace通过git add提交过来的文件
     + stage：暂存区，将工作区的内容提交过来变为暂存状态
 
+
+#### git rm
+1. git rm 文件：首先会将工作区的文件删除，并且会将这次删除记录到stage中，就相当于rm + git add的操作；
+    + rm：下图是rm操作及回撤：
+    + git rm：下图是git rm操作及回撤：
+2. git rm 文件 --cache：将文件从追踪状态中撤离，变为untracked状态。
+
+#### git checkout和git reset回撤
+1. git checkout：
+    + git checkout 文件：将暂存区的文件回撤到工作区,例如修改某个文件，但是不想要这些修改可以回撤，删除也是，如果暂存区没有这个文件回撤不了；
+    + git checkout commit 文件：将某次提交的commit的文件回撤覆盖暂存区和工作区。
+2. git reset：
+    + git reset 文件：回撤暂存区的文件。例如add进来的文件可以通过这个回撤，删除也可以；
+    + git reset --hard：重置工作区和暂存区，与上一次commit保持一致；
+    + git reset commit：将HEAD指向commit，更新暂存区，工作区不变；
+    + git reset --hard commit：回撤版本到commit，工作区和暂存区都改变。
 
 
 首先可以通过两种方式创建git仓库和远程仓库进行连接：

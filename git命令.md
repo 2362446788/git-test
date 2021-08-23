@@ -16,6 +16,12 @@
     + git rm：下图是git rm操作及回撤：
 2. git rm 文件 --cache：将文件从追踪状态中撤离，变为untracked状态。
 
+#### git rm
+1. git rm 文件：首先会将工作区的文件删除，并且会将这次删除记录到stage中，就相当于rm + git add的操作；
+    + rm：下图是rm操作及回撤：
+    + git rm：下图是git rm操作及回撤：
+2. git rm 文件 --cache：将文件从追踪状态中撤离，变为untracked状态。
+
 #### git checkout和git reset回撤
 1. git checkout：
     + git checkout 文件：将暂存区的文件回撤到工作区,例如修改某个文件，但是不想要这些修改可以回撤，删除也是，如果暂存区没有这个文件回撤不了；
@@ -38,6 +44,7 @@ commit可以将暂存区中的文件提交到本地仓库历史区中。
 3. git commit -v：提交时展示所有的diff信息；
 4. git commit --amend -m 'message'：使用一次新的commit，替代上一次提交，如果代码没有任何新变化，则用来改写上一次commit的提交信息；
 5. git commit --amend [file1] [file2]：重做上一次提交，包含新文件更新。
+
 
 首先可以通过两种方式创建git仓库和远程仓库进行连接：
 **git init**

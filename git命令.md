@@ -1,4 +1,5 @@
 #### git 基础知识
+aaa
 1. git是一个分布式版本控制系统，与SVN这样的集中式版本控制系统不一样，git在本地也维护着一个本地仓库，这样即使没有网络也可以正常进行工作，只要最后将自己的修改同步到远端即可，而SVN就很依赖于网络连接，并且要求的带宽很高。
 2. git分为工作区workspace、暂存区stage|idnex、本地仓库(历史区)local repository、远程仓库remote repository；
     + workspace：工作区，平时存放代码的地方；文件状态有四个：未被追踪untracked、未被修改unmodified、已修改modified、staged已暂存；
